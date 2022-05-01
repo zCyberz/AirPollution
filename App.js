@@ -1,22 +1,36 @@
 import { StyleSheet, View, Text, ScrollView } from "react-native";
-import Header from "./components/Header";
-import Body from "./components/Body";
+import { NavigationContainer } from "@react-navigation/native";
+import HomeScreen from "./Screens/Home/Home";
+import AirQuality from "./Screens/AirQuality/AirQuality";
+
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const App = () => {
+  const Stack = createNativeStackNavigator();
   return (
-    <View style={styles.container}>
-      <Header></Header>
-      <ScrollView>
-        <Body></Body>
-      </ScrollView>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="AirQuality"
+          component={AirQuality}
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
 // React Native Styles
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  container: {},
 });
 export default App;

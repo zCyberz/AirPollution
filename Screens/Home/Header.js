@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import moment from "moment";
-import translate from "../translate.json";
+import translate from "../../translate.json";
 
 const Header = () => {
   const dayInWeek = translate.dayInWeek[moment().format("ddd")];
@@ -13,7 +13,10 @@ const Header = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <Image style={styles.img} source={require("../assets/Circle.png")} />
+          <Image
+            style={styles.img}
+            source={require("../../assets/Circle.png")}
+          />
           <Text style={styles.textTop}>AirLotus</Text>
         </View>
 
@@ -24,9 +27,7 @@ const Header = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  container: {},
   header: {
     marginTop: 50,
     flexDirection: "row",
